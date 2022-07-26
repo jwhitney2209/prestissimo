@@ -1,32 +1,25 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useSignup } from "../hooks/useSignup";
+import React, { useState } from 'react'
+import { useLogin } from '../hooks/useLogin'
+import { useNavigate } from 'react-router-dom'
 
-const SignUp = () => {
+const Login = () => {
   const navigate = useNavigate()
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { error, signup } = useSignup();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const { error, login } = useLogin()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    signup(email, password);
+    e.preventDefault()
+    login(email, password)
+
     navigate('/dashboard')
-  };
+  }
+
 
   return (
     <div className="my-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div className="max-w-[800px] w-full mx-auto text-center flex flex-col justify-center">
-        <h1 className="mb-4 text-3xl font-bold">Create your account</h1>
-        <p className="mb-4">
-          Already registered?{" "}
-          <Link
-            to="/signin"
-            className="text-[#6A0DAD] hover:text-[#550a8a] font-medium"
-          >
-            Sign in
-          </Link>
-        </p>
+        <h1 className="mb-4 text-3xl font-bold">Log in to your account</h1>
       </div>
       <div className="bg-white mx-4 py-8 px-6 shadow rounded-lg sm:px-10">
         <form className="mb-0 space-y-6" onSubmit={handleSubmit}>
@@ -40,10 +33,10 @@ const SignUp = () => {
             <div className="mt-1">
               <input
                 id="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
                 name="email"
                 type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
                 autoComplete="email"
                 required
                 className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-[#6A0DAD] focus:ring-1 focus:ring-[#6A0DAD]"
@@ -52,7 +45,7 @@ const SignUp = () => {
           </div>
           <div>
             <label
-              htmlFor="email"
+              htmlFor="password"
               className="block text-sm font-medium text-gray-700"
             >
               Password
@@ -61,25 +54,26 @@ const SignUp = () => {
               <input
                 id="password"
                 name="password"
+                type="password"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
-                type="password"
                 required
                 className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-[#6A0DAD] focus:ring-1 focus:ring-[#6A0DAD]"
               />
             </div>
+            <a href="/" className='text-sm font-medium text-[#6A0DAD] hover:text-[#550a8a]'>Forgot your password?</a>
           </div>
           <button
             type="submit"
             className="bg-[#6A0DAD] hover:bg-[#550a8a] w-full rounded-md mx-auto font-medium my-6 px-6 py-3 text-white"
           >
-            Submit
+            Login
           </button>
           {error && <p className="text-[#ff0000]">{error}</p>}
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default Login

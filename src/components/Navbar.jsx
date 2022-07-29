@@ -22,7 +22,7 @@ const Navbar = () => {
         <Link to="/about" className='p-4 font-medium hover:text-[#6A0DAD]'>About</Link>
         {!user && <Link to="/signup" className="bg-[#6A0DAD] hover:bg-[#550a8a] flex justify-center py-2 w-[100px] rounded font-medium mx-2 text-white">Sign Up</Link>}
         {!user && <Link to="/login" className="bg-gray-500 hover:bg-gray-600 flex justify-center py-2 w-[100px] rounded font-medium text-white">Login</Link>}
-        {user && <li onClick={logout}><Link to="/" className="bg-gray-500 hover:bg-gray-600 flex justify-center py-2 w-[100px] rounded font-medium text-white">Logout</Link></li>}
+        {user && <li onClick={logout}><Link to="/" className="bg-gray-500 hover:bg-gray-600 flex justify-center py-2 ml-4 w-[100px] rounded font-medium text-white">Logout</Link></li>}
       </ul>
       <div onClick={handleNav} className='block md:hidden'>
           {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20}/>}

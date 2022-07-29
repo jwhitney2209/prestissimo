@@ -1,20 +1,22 @@
-import React, { useState } from 'react'
-import { useLogin } from '../hooks/useLogin'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
 
 const Login = () => {
-  const navigate = useNavigate()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const { error, login } = useLogin()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { error, login } = useLogin();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    login(email, password)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await login(email, password);
 
-    navigate('/dashboard')
-  }
-
+      setEmail("");
+      setPassword("");
+    } catch (event) {
+      console.error(event);
+    }
+  };
 
   return (
     <div className="my-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -61,7 +63,12 @@ const Login = () => {
                 className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-[#6A0DAD] focus:ring-1 focus:ring-[#6A0DAD]"
               />
             </div>
-            <a href="/" className='text-sm font-medium text-[#6A0DAD] hover:text-[#550a8a]'>Forgot your password?</a>
+            <a
+              href="/"
+              className="text-sm font-medium text-[#6A0DAD] hover:text-[#550a8a]"
+            >
+              Forgot your password?
+            </a>
           </div>
           <button
             type="submit"
@@ -73,7 +80,7 @@ const Login = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

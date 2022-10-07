@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PeopleTable from "../components/PeopleTable";
+import { useCollection } from '../hooks/useCollection';
 
 const People = () => {
+  const { documents: people } = useCollection('people')
+
   return (
     <>
       <div className="max-w-[1240px] w-full mx-auto px-4 flex flex-col mb-6">
@@ -110,7 +113,7 @@ const People = () => {
         </div>
         {/* Tables for People */}
         <div className="mt-2">
-          <PeopleTable />
+          {people && <PeopleTable people={people}/>}
         </div>
       </div>
     </>

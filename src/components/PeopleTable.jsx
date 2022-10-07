@@ -1,6 +1,6 @@
 import React from "react";
 
-const PeopleTable = () => {
+const PeopleTable = ({ people }) => {
   return (
     <>
       <div className="overflow-x-auto">
@@ -9,27 +9,37 @@ const PeopleTable = () => {
             <tr>
               <th>Name</th>
               <th>Grade</th>
-              <th>Age</th>
+              <th>Voice Part</th>
               <th>Email</th>
               <th></th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Littel, Schaden and Vandervort</td>
-              <td>Canada</td>
-              <td><div className="flex justify-center"><button className="btn btn-sm btn-primary">Update</button></div></td>
-              <td><div className="flex justify-center"><button className="btn btn-sm btn-error">Remove</button></div></td>
+            {people.map(people => (
+              <tr>
+              <td>{people.name}</td>
+              <td>{people.gradeLevel}</td>
+              <td>{people.voicePart}</td>
+              <td>{people.email}</td>
+              <td>
+                <div className="flex justify-center">
+                  <button className="btn btn-sm btn-primary" disabled>Update</button>
+                </div>
+              </td>
+              <td>
+                <div className="flex justify-center">
+                  <button className="btn btn-sm btn-error" disabled>Remove</button>
+                </div>
+              </td>
             </tr>
+            ))}
           </tbody>
           <tfoot>
             <tr>
               <th>Name</th>
               <th>Grade</th>
-              <th>Age</th>
+              <th>Voice Part</th>
               <th>Email</th>
               <th></th>
               <th></th>

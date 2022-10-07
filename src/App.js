@@ -7,8 +7,8 @@ import Footer from "./components/Footer";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import AddClass from "./pages/AddClass";
+import People from "./pages/People";
+import AddPeople from "./pages/AddPeople";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
@@ -22,8 +22,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/dashboard" />} />
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
-            <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
-            <Route path="/addclass" element={user ? <AddClass /> : <Navigate to="/login" />} />
+            <Route path="/dashboard" element={user ? <People /> : <Navigate to="/login" />} />
+            <Route path="/people" element={user ? <People /> : <Navigate to="/login" />} />
+            <Route path="/addpeople" element={user ? <AddPeople /> : <Navigate to="/login" />} />
           </Routes>
           <Footer />
         </BrowserRouter>

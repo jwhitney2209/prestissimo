@@ -27,7 +27,7 @@ const SignUp = () => {
           Already registered?{" "}
           <Link
             to="/signin"
-            className="text-[#6A0DAD] hover:text-[#550a8a] font-medium"
+            className="text-primary hover:text-primary-focus font-medium"
           >
             Sign in
           </Link>
@@ -51,7 +51,7 @@ const SignUp = () => {
                 type="email"
                 autoComplete="email"
                 required
-                className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-[#6A0DAD] focus:ring-1 focus:ring-[#6A0DAD]"
+                className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
           </div>
@@ -70,13 +70,13 @@ const SignUp = () => {
                 value={password}
                 type="password"
                 required
-                className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-[#6A0DAD] focus:ring-1 focus:ring-[#6A0DAD]"
+                className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
           </div>
           <button
             type="submit"
-            className="bg-[#6A0DAD] hover:bg-[#550a8a] w-full rounded-md mx-auto font-medium my-6 px-6 py-3 text-white"
+            className="btn btn-primary w-full rounded-md mx-auto font-medium my-6 px-6 py-3"
           >
             Submit
           </button>

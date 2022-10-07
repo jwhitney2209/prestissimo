@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <div className="max-w-[1240px] bg-white mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-black">
       <div>
-        <h1 className="w-full text-3xl font-bold text-[#6A0DAD]">
+        <h1 className="w-full text-3xl font-bold text-primary">
           PRESTISSIMO.
         </h1>
         <p className="py-4">

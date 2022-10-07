@@ -27,7 +27,7 @@ const ClassForm = () => {
   };
   return (
     <>
-    <Link to="/dashboard" className="font-medium flex mb-2 text-[#6A0DAD] hover:text-[#550a8a]">
+    <Link to="/dashboard" className="font-medium flex mb-2 text-primary hover:text-primary-focus">
       <p><FaChevronCircleLeft size={20} /> Back to Dashboard</p>
     </Link>
     <form className="mb-0 space-y-6" onSubmit={handleSubmit}>
@@ -47,7 +47,7 @@ const ClassForm = () => {
             type="text"
             placeholder="ex. Tenor-Bass Choir"
             required
-            className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-[#6A0DAD] focus:ring-1 focus:ring-[#6A0DAD]"
+            className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
           />
         </div>
         <label
@@ -64,12 +64,12 @@ const ClassForm = () => {
             name="class"
             type="text"
             placeholder="ex. 7th Period"
-            className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-[#6A0DAD] focus:ring-1 focus:ring-[#6A0DAD]"
+            className="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
           />
         </div>
         <button
           type="submit"
-          className="bg-[#6A0DAD] hover:bg-[#550a8a] w-full md:w-[150px] rounded-md mx-auto font-medium my-6 px-6 py-3 text-white"
+          className="bg-primary hover:bg-primary-focus w-full md:w-[150px] rounded-md mx-auto font-medium my-6 px-6 py-3 text-white"
         >
           Submit
         </button>

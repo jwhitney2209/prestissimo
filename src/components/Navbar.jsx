@@ -1,45 +1,239 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { useLogout } from '../hooks/useLogout'
-import { useAuthContext } from '../hooks/useAuthContext'
+import React from "react";
+import { Link } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
+
+const menuClick = () => {
+  document.activeElement.blur();
+};
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false)
-  const { user } = useAuthContext()
+  const { user } = useAuthContext();
 
-  const handleNav = () => {
-    setNav(!nav)
-  }
-
-  const { logout } = useLogout()
+  const { logout } = useLogout();
   return (
-    <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-black'>
-      <h1 className='w-full text-3xl font-bold text-[#6A0DAD]'>PRESTISSIMO.</h1>
-      <ul className='hidden md:flex items-center'>
-        <Link to="/" className='p-4 font-medium hover:text-[#6A0DAD]'>Home</Link>
-        <Link to="/pricing" className='p-4 font-medium hover:text-[#6A0DAD]'>Pricing</Link>
-        <Link to="/about" className='p-4 font-medium hover:text-[#6A0DAD]'>About</Link>
-        {!user && <Link to="/signup" className="bg-[#6A0DAD] hover:bg-[#550a8a] flex justify-center py-2 w-[100px] rounded font-medium mx-2 text-white">Sign Up</Link>}
-        {!user && <Link to="/login" className="bg-gray-500 hover:bg-gray-600 flex justify-center py-2 w-[100px] rounded font-medium text-white">Login</Link>}
-        {user && <li onClick={logout}><Link to="/" className="bg-gray-500 hover:bg-gray-600 flex justify-center py-2 ml-4 w-[100px] rounded font-medium text-white">Logout</Link></li>}
-      </ul>
-      <div onClick={handleNav} className='block md:hidden'>
-          {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20}/>}
-      </div>
-      <div className={nav ? 'fixed left-0 top-0 w-[60%] h-full border-r bg-white ease-in-out duration-500': 'fixed left-[-100%]'}>
-        <h1 className='w-full text-3xl font-bold text-[#6A0DAD] m-4'>PRESTISSIMO.</h1>
-        <ul className='uppercase p-4'>
-          <Link to="/" className='p-4 flex border-b border-gray-800 font-medium hover:text-[#6A0DAD]'>Home</Link>
-          <Link to="/pricing" className='p-4 flex border-b border-gray-800 font-medium hover:text-[#6A0DAD]'>Pricing</Link>
-          <Link to="/about" className='p-4 flex border-b border-gray-800 font-medium hover:text-[#6A0DAD]'>About</Link>
-          {!user && <Link to="/signup" className='p-4 flex border-b border-gray-800 font-medium hover:text-[#6A0DAD]'>Sign Up</Link>}
-          {!user && <Link to="/login" className='p-4 flex border-b border-gray-800 font-medium hover:text-[#6A0DAD]'>Login</Link>}
-          {user && <li className='p-4 font-medium hover:text-[#6A0DAD]' onClick={logout}><Link to="/">Logout</Link></li>}
-        </ul>
-      </div>
-    </div>
-  )
-}
+    <>
+      <div className="navbar bg-base-100 max-w-[1240px] mx-auto">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              onClick={menuClick}
+            >
+              {" "}
+              {!user && (
+                <>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li tabIndex={0}>
+                    <Link to="/pricing" className="justify-between">
+                      {" "}
+                      Pricing
+                      <svg
+                        className="fill-current"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                      </svg>
+                    </Link>
+                    <ul className="p-2 shadow bg-base-100">
+                      <li>
+                        <Link to="/">Submenu 1</Link>
+                      </li>
+                      <li>
+                        <Link to="/">Submenu 2</Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
+                </>
+              )}
+              {user && (
+                <>
+                  <li>
+                    <Link to="/classes">Classes</Link>
+                  </li>
+                  <li tabIndex={0}>
+                    <Link to="/inventory" className="justify-between">
+                      {" "}
+                      Inventory
+                      <svg
+                        className="fill-current"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                      </svg>
+                    </Link>
+                    <ul className="p-2 shadow bg-base-100">
+                      <li>
+                        <Link to="/uniforms">Uniforms</Link>
+                      </li>
+                      <li>
+                        <Link to="/assets">Assets</Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <Link to="/library">Music Library</Link>
+                  </li>
+                  <li>
+                    <Link to="/fundraising">Fundraising</Link>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+          <Link to="/">
+            <button className="btn btn-ghost normal-case text-xl">
+              Prestissimo
+            </button>
+          </Link>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal p-0" onClick={menuClick}>
+            {!user && (
+              <>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li tabIndex={0}>
+                  <Link to="/pricing">
+                    {" "}
+                    Pricing
+                    <svg
+                      className="fill-current"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                    </svg>
+                  </Link>
 
-export default Navbar
+                  <ul className="p-2 shadow bg-base-100">
+                    <li>
+                      <Link to="/">Submenu 1</Link>
+                    </li>
+                    <li>
+                      <Link to="/">Submenu 2</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link to="/about">About</Link>
+                </li>
+              </>
+            )}
+            {user && (
+              <>
+                <li tabIndex={0}>
+                  <Link to="/people">
+                    People
+                    <svg
+                      className="fill-current"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                    </svg>
+                  </Link>
+                  <ul className="p-2 shadow bg-base-100">
+                  <li>
+                      <Link to="/students">Students</Link>
+                    </li>
+                    <li>
+                      <Link to="/ensembles">Ensembles</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li tabIndex={0}>
+                  <Link to="/inventory">
+                    {" "}
+                    Inventory
+                    <svg
+                      className="fill-current"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                    </svg>
+                  </Link>
+
+                  <ul className="p-2 shadow bg-base-100">
+                    <li>
+                      <Link to="/uniforms">Uniforms</Link>
+                    </li>
+                    <li>
+                      <Link to="/assets">Assets</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link to="/library">Music Library</Link>
+                </li>
+                <li>
+                  <Link to="/fundraising">Fundraising</Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+        <div className="navbar-end">
+          {!user && (
+            <>
+              <Link to="/login">
+                <button className="btn btn-sm btn-primary mx-2">Log In</button>
+              </Link>
+              <Link to="/signup">
+                <button className="btn btn-sm btn-secondary">Sign Up</button>
+              </Link>
+            </>
+          )}
+          {user && (
+            <>
+              <Link to="/dashboard">
+                <button className="btn btn-sm md:btn-md btn-primary mx-2">Dashboard</button>
+              </Link>
+              <Link to="/" onClick={logout}>
+                <button className="btn btn-sm md:btn-md btn-secondary">Logout</button>
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Navbar;

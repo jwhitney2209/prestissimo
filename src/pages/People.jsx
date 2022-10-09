@@ -175,7 +175,7 @@ const People = () => {
                         <td>{people.email}</td>
                         <td>
                           <div className="flex justify-center">
-                            <button className="btn btn-sm btn-info">
+                            <button className="btn btn-sm btn-info" disabled>
                               Update
                             </button>
                           </div>

@@ -44,7 +44,7 @@ const People = () => {
 
   return (
     <>
-      <div className="max-w-[1240px] w-full mx-auto px-4 flex flex-col mb-6">
+      <div className="max-w-[1240px] w-full mx-auto px-2 flex flex-col mb-6">
         {/* Title/Navbar */}
         <div className="navbar">
           <div className="flex-1">
@@ -58,7 +58,7 @@ const People = () => {
                 Add People
               </button>
             </Link>
-            <button className="btn btn-sm md:btn-md btn-primary">
+            <button className="btn btn-sm md:btn-md btn-primary" disabled>
               Import People
             </button>
           </div>

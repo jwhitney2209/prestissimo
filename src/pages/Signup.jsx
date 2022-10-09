@@ -26,7 +26,7 @@ const SignUp = () => {
         <p className="mb-4">
           Already registered?{" "}
           <Link
-            to="/signin"
+            to="/login"
             className="text-primary hover:text-primary-focus font-medium"
           >
             Sign in

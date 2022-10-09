@@ -213,10 +213,10 @@ const Navbar = () => {
           {!user && (
             <>
               <Link to="/login">
-                <button className="btn btn-sm btn-primary mx-2">Log In</button>
+                <button className="btn btn-sm md:btn-md btn-primary mx-2">Log In</button>
               </Link>
               <Link to="/signup">
-                <button className="btn btn-sm btn-secondary">Sign Up</button>
+                <button className="btn btn-sm md:btn-md btn-secondary">Sign Up</button>
               </Link>
             </>
           )}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaFacebookSquare,
   FaGithubSquare,
@@ -10,9 +11,11 @@ const Footer = () => {
   return (
     <div className="max-w-[1240px] bg-white mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-black">
       <div>
-        <h1 className="w-full text-3xl font-bold text-primary">
-          PRESTISSIMO.
-        </h1>
+      <Link to="/">
+            <button className="btn btn-primary normal-case text-xl">
+              Prestissimo
+            </button>
+          </Link>
         <p className="py-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque fuga
           facilis architecto deleniti, voluptatem labore. Corrupti iusto libero

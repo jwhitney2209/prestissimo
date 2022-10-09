@@ -1,10 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import PeopleTable from "../components/PeopleTable";
-import { useCollection } from '../hooks/useCollection';
+import { useCollection } from "../hooks/useCollection";
+import { useAuthContext } from "../hooks/useAuthContext";
+
+import { db } from "../firebase/config";
+import { doc, deleteDoc } from "firebase/firestore";
+import DeleteConfirmation from "../components/DeleteConfirmation";
 
 const People = () => {
-  const { documents: people } = useCollection('people')
+  const { user } = useAuthContext();
+  const { documents: people } = useCollection("people", [
+    "uid",
+    "==",
+    user.uid,
+  ]);
+
+  // Local State
+  const [name, setName] = useState(null);
+  const [id, setId] = useState(null);
+  const [displayConfirmationModal, setDisplayConfirmationModal] =
+    useState(false);
+  const [deleteMessage, setDeleteMessage] = useState(null);
+
+  // Handle the displaying of the modal based on type and Id
+  const showDeleteModal = (name, id) => {
+    setName(name);
+    setId(id);
+
+    setDeleteMessage(`Are you sure you want to delete '${name}'?`)
+
+    setDisplayConfirmationModal(true);
+  };
+
+  // hide modal
+  const hideConfirmationModal = () => {
+    setDisplayConfirmationModal(false);
+  };
+
+  const submitDelete = async (id) => {
+    const ref = doc(db, "people", id);
+    await deleteDoc(ref);
+  };
 
   return (
     <>
@@ -17,9 +53,11 @@ const People = () => {
             </h1>
           </div>
           <div className="flex-none">
-            <Link to="/addpeople"><button className="btn btn-sm md:btn-md btn-primary mx-2">
-              Add People
-            </button></Link>
+            <Link to="/addpeople">
+              <button className="btn btn-sm md:btn-md btn-primary mx-2">
+                Add People
+              </button>
+            </Link>
             <button className="btn btn-sm md:btn-md btn-primary">
               Import People
             </button>
@@ -113,9 +151,67 @@ const People = () => {
         </div>
         {/* Tables for People */}
         <div className="mt-2">
-          {people && <PeopleTable people={people}/>}
+          {people && (
+            <div className="overflow-x-auto">
+              <table className="table table-compact w-full">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Voice Part</th>
+                    <th>Email</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {user &&
+                    people.map((people) => (
+                      <tr key={people.id}>
+                        <td>{people.name}</td>
+                        <td>{people.gradeLevel}</td>
+                        <td>{people.voicePart}</td>
+                        <td>{people.email}</td>
+                        <td>
+                          <div className="flex justify-center">
+                            <button className="btn btn-sm btn-primary" disabled>
+                              Update
+                            </button>
+                          </div>
+                        </td>
+                        <td>
+                          <div className="flex justify-center">
+                            <label
+                              htmlFor="my-modal-6"
+                              onClick={() =>
+                                showDeleteModal(people.name, people.id)
+                              }
+                              className="btn btn-sm btn-error"
+                            >
+                              Remove
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Voice Part</th>
+                    <th>Email</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          )}
         </div>
       </div>
+      <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} name={name} id={id} message={deleteMessage} />
     </>
   );
 };

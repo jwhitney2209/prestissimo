@@ -110,7 +110,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/">
-            <button className="btn btn-ghost normal-case text-xl">
+            <button className="invisible md:visible btn btn-ghost normal-case text-xl">
               Prestissimo
             </button>
           </Link>

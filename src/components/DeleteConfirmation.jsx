@@ -6,7 +6,7 @@ const DeleteConfirmation = ({ showModal, hideModal, confirmModal, id, name, mess
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
-          <h3 className="font-bold text-error text-lg">
+          <h3 className="font-bold text-lg">
            Delete Confirmation
           </h3>
           <p className="py-4">

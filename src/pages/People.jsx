@@ -64,8 +64,8 @@ const People = () => {
           </div>
         </div>
         <div className="w-full shadow rounded">
-          <div className="mt-2 w-full mx-auto">
-            <h1 className="font-bold p-2 border-b rounded-t bg-primary text-white">
+          <div className="mt-2 w-full mx-auto table">
+            <h1 className="font-bold p-2 bg-primary text-white">
               Search
             </h1>
           </div>
@@ -77,7 +77,7 @@ const People = () => {
                 <div className="flex sm:flex-row flex-col sm:justify-end py-2">
                   <label
                     htmlFor="lastname"
-                    className="text-md font-medium text-gray-700"
+                    className="text-md font-medium "
                   >
                     Last Name
                   </label>
@@ -87,14 +87,14 @@ const People = () => {
                       name="class"
                       type="text"
                       placeholder=""
-                      className="border w-full border-gray-300 px-2 py-1 rounded shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="border w-full  px-2 py-1 rounded shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
                 </div>
                 <div className="flex sm:flex-row flex-col justify-end">
                   <label
                     htmlFor="lastname"
-                    className="text-md font-medium text-gray-700"
+                    className="text-md font-medium "
                   >
                     First Name
                   </label>
@@ -104,7 +104,7 @@ const People = () => {
                       name="class"
                       type="text"
                       placeholder=""
-                      className="border w-full border-gray-300 px-2 py-1 rounded shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="border w-full  px-2 py-1 rounded shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
                 </div>
@@ -114,7 +114,7 @@ const People = () => {
                 <div className="flex sm:flex-row flex-col sm:justify-end py-2">
                   <label
                     htmlFor="lastname"
-                    className="text-md font-medium text-gray-700"
+                    className="text-md font-medium "
                   >
                     Ensemble
                   </label>
@@ -124,14 +124,14 @@ const People = () => {
                       name="class"
                       type="text"
                       placeholder=""
-                      className="border w-full border-gray-300 px-2 py-1 rounded shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="border w-full  px-2 py-1 rounded shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
                 </div>
                 <div className="flex sm:flex-row flex-col sm:justify-end">
                   <label
                     htmlFor="lastname"
-                    className="text-md font-medium text-gray-700"
+                    className="text-md font-medium"
                   >
                     Section
                   </label>
@@ -141,7 +141,7 @@ const People = () => {
                       name="class"
                       type="text"
                       placeholder=""
-                      className="border w-full border-gray-300 px-2 py-1 rounded shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="border w-full px-2 py-1 rounded shadow-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
                     />
                   </div>
                 </div>

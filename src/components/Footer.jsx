@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="max-w-[1240px] bg-white mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-black">
+    <div className="max-w-[1240px]mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8">
       <div>
       <Link to="/">
             <button className="btn btn-primary normal-case text-xl">
@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
         <div className="lg:col-span-2 flex justify-between mt-6">
           <div>
-            <h6 className="font-medium text-black">Solutions</h6>
+            <h6 className="font-medium">Solutions</h6>
             <ul>
               <li className="py-2 text-sm">Analytics</li>
               <li className="py-2 text-sm">Marketing</li>
@@ -40,7 +40,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h6 className="font-medium text-black">Support</h6>
+            <h6 className="font-medium ">Support</h6>
             <ul>
               <li className="py-2 text-sm">Pricing</li>
               <li className="py-2 text-sm">Documentation</li>
@@ -49,7 +49,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h6 className="font-medium text-black">Company</h6>
+            <h6 className="font-medium ">Company</h6>
             <ul>
               <li className="py-2 text-sm">About</li>
               <li className="py-2 text-sm">Blog</li>
@@ -59,7 +59,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h6 className="font-medium text-black">Legal</h6>
+            <h6 className="font-medium ">Legal</h6>
             <ul>
               <li className="py-2 text-sm">Claim</li>
               <li className="py-2 text-sm">Policy</li>

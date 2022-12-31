@@ -27,7 +27,7 @@ const SignUp = () => {
           Already registered?{" "}
           <Link
             to="/login"
-            className="text-primary hover:text-primary-focus font-medium"
+            className="text-indigo-600 hover:text-indigo-700 font-medium"
           >
             Sign in
           </Link>
@@ -76,7 +76,7 @@ const SignUp = () => {
           </div>
           <button
             type="submit"
-            className="btn btn-primary w-full rounded-md mx-auto font-medium my-6 px-6 py-3"
+            className="btn btn-primary bg-indigo-600 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full rounded-md mx-auto font-medium my-6 px-6 py-3"
           >
             Submit
           </button>

@@ -18,7 +18,7 @@ export const useLogin = () => {
         dispatch({ type: 'LOGIN', payload: res.user})
 
         // after user logs in, navigate user to dashboard
-        navigate('/people')
+        navigate('/students')
       })
       .catch((err) => {
         setError(err.message)

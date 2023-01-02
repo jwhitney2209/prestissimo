@@ -39,6 +39,12 @@ const StudentList = (props) => {
                       scope="col"
                       className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                     >
+                      Ensemble
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                    >
                       Email
                     </th>
                     <th
@@ -69,6 +75,9 @@ const StudentList = (props) => {
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                             {student.studentId}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {student.ensembleName}
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                             {student.email}

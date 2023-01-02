@@ -6,7 +6,7 @@ import EnsembleNav from "../components/EnsembleNav";
 
 const Ensembles = () => {
   const { user } = useAuthContext();
-  const { documents: classes } = useCollection("classes", [
+  const { documents: ensembles } = useCollection("ensembles", [
     "uid",
     "==",
     user.uid,
@@ -31,7 +31,7 @@ const Ensembles = () => {
               </Link>
             </div>
           </div>
-          <EnsembleNav classes={classes} />
+          <EnsembleNav ensembles={ensembles} />
         </div>
       </div>
     </>

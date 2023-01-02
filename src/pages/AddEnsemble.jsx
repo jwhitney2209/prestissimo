@@ -7,7 +7,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 const AddEnsemble = () => {
-  const [newClassName, setNewClassName] = useState("");
+  const [newEnsembleName, setNewEnsembleName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const { user } = useAuthContext();
@@ -18,12 +18,12 @@ const AddEnsemble = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (newClassName === "") {
+    if (newEnsembleName === "") {
       return;
     }
 
-    await addDoc(collection(db, "classes"), {
-      name: newClassName,
+    await addDoc(collection(db, "ensembles"), {
+      name: newEnsembleName,
       uid: user.uid,
     });
 
@@ -31,10 +31,10 @@ const AddEnsemble = () => {
   };
 
   const handleChange = (e) => {
-    if (e.target.name === 'class-name') {
+    if (e.target.name === 'ensemble-name') {
       const name = e.target.value
       if (!name) {
-        setErrorMessage("Please enter a class name!")
+        setErrorMessage("Please enter an ensemble name!")
       } else {
         setErrorMessage('');
       }
@@ -74,13 +74,13 @@ const AddEnsemble = () => {
                     type="text"
                     name="ensemble-name"
                     id="ensemble-name"
-                    onChange={(e) => setNewClassName(e.target.value)}
+                    onChange={(e) => setNewEnsembleName(e.target.value)}
                     onBlur={handleChange}
                     className="block w-full max-w-lg rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:max-w-xs sm:text-sm"
                   />
                   {errorMessage && (
                     <div className="pl-1 text-sm sm:text-xs text-red-600">
-                      Please enter a class name!
+                      Please enter a name for the ensemble.
                     </div>
                   )}
                 </div>

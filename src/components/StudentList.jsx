@@ -14,6 +14,9 @@ const StudentList = (props) => {
               <table className="min-w-full divide-y divide-gray-300">
                 <thead className="bg-gray-50">
                   <tr>
+                    <th scope="col" className="sr-only">
+                      ClassId
+                    </th>
                     <th
                       scope="col"
                       className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
@@ -57,6 +60,7 @@ const StudentList = (props) => {
                     {students &&
                       students.map((student) => (
                         <tr key={student.id}>
+                          <td className="sr-only">{student.classId}</td>
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                             {student.firstName} {student.lastName}
                           </td>

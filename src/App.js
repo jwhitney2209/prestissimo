@@ -24,14 +24,38 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={user ? <Dashboard /> : <Home />} />
-            <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/dashboard" />} />
-            <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
-            <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
-            <Route path="/students" element={user ? <Students /> : <Navigate to="/login" />} />
-            <Route path="/parents" element={user ? <Parents /> : <Navigate to="/login" /> } />
-            <Route path="/addperson" element={user ? <AddPerson /> : <Navigate to="/login" />} />
-            <Route path="/addensemble" element={user ? <AddEnsemble/> : <Navigate to="/login" />} />
-            <Route path="/ensembles" element={user ? <Ensembles/> : <Navigate to="/login" />} />
+            <Route
+              path="/signup"
+              element={!user ? <Signup /> : <Navigate to="/dashboard" />}
+            />
+            <Route
+              path="/login"
+              element={!user ? <Login /> : <Navigate to="/dashboard" />}
+            />
+            <Route
+              path="/dashboard"
+              element={user ? <Dashboard /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/students"
+              element={user ? <Students /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/parents"
+              element={user ? <Parents /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/addperson"
+              element={user ? <AddPerson /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/addensemble"
+              element={user ? <AddEnsemble /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/ensembles"
+              element={user ? <Ensembles /> : <Navigate to="/login" />}
+            />
           </Routes>
           <Footer />
         </BrowserRouter>

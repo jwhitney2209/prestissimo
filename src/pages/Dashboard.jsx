@@ -13,26 +13,26 @@ const Dashboard = () => {
             What would you like to do?
           </p>
           <div className="flex flex-col sm:flex-row my-2">
-            <Link to="/addperson">
+            <Link to="/addperson" className="">
               <button
                 type="button"
-                className="mt-2 mx-2 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-lg sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="w-full mt-2 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-lg sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add Person
               </button>
             </Link>
-            <Link to="/addensemble">
+            <Link to="/addensemble" className="mx-0 sm:mx-2">
               <button
                 type="button"
-                className="mt-2 mx-2 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-lg sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="w-full mt-2 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-lg sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add Class
               </button>
             </Link>
-            <Link to="/addinventory">
+            <Link to="/addinventory" className="">
               <button
                 type="button"
-                className="mt-2 mx-2 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-lg sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="w-full mt-2 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-lg sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add Inventory
               </button>

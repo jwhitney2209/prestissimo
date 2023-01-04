@@ -26,7 +26,7 @@ const Dashboard = () => {
                 type="button"
                 className="w-full mt-2 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-lg sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                Add Class
+                Add Ensemble
               </button>
             </Link>
             <Link to="/addinventory" className="">

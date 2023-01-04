@@ -16,12 +16,12 @@ const EnsembleNav = (props) => {
     "ensembleName",
     "==",
     newEnsembleName,
-  ]);
+  ], ["uid", "==", user.uid,] );
 
   return (
     <>
       {user && (
-        <div className="mt-4">
+        <div className="">
           <div className="sm:hidden">
             <label htmlFor="current-tab" className="sr-only">
               Select a tab

@@ -13,6 +13,8 @@ import Parents from "./pages/Parents";
 import Dashboard from "./pages/Dashboard";
 import AddEnsemble from "./pages/AddEnsemble";
 import Ensembles from "./pages/Ensembles";
+import Uniforms from "./pages/Uniforms";
+import AddInventory from "./pages/AddInventory";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
@@ -55,6 +57,14 @@ function App() {
             <Route
               path="/ensembles"
               element={user ? <Ensembles /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/uniforms"
+              element={user ? <Uniforms /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/addinventory"
+              element={user ? <AddInventory /> : <Navigate to="/login" />}
             />
           </Routes>
           <Footer />

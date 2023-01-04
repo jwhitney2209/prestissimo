@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
+// import { signInWithGoogle } from "../firebase/config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -78,6 +79,14 @@ const Login = () => {
           </button>
           {error && <p className="text-[#ff0000]">{error}</p>}
         </form>
+        {/* <div>
+          <button
+            className="btn btn-primary bg-indigo-600 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full rounded-md mx-auto font-medium mt-3 px-6 py-3"
+            onClick={signInWithGoogle}
+          >
+            Sign In With Google
+          </button>
+        </div> */}
       </div>
     </div>
   );

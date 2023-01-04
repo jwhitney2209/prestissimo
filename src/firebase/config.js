@@ -1,8 +1,10 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
+
 // auth
-import { getAuth } from 'firebase/auth'
+// eslint-disable-next-line no-unused-vars
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -25,3 +27,24 @@ const db = getFirestore()
 const auth = getAuth()
 
 export { db, auth }
+
+// const provider = new GoogleAuthProvider()
+
+// function refreshPage() {
+//   window.location.reload(false);
+// }
+
+// export const signInWithGoogle = () => {
+//   signInWithPopup(auth, provider).then((result) => {
+//     const name = result.user.displayName;
+//     const email = result.user.email;
+//     const profilePic = result.user.photoURL;
+
+//     localStorage.setItem("name", name)
+//     localStorage.setItem("email", email)
+//     localStorage.setItem("profilePic", profilePic)
+//     refreshPage();
+//   }).catch((error) => {
+//     console.log(error)
+//   });
+// }

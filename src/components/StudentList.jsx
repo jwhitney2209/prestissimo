@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { Link } from "react-router-dom";
 
 const StudentList = (props) => {
   const { user } = useAuthContext();
@@ -57,7 +58,7 @@ const StudentList = (props) => {
                       scope="col"
                       className="relative py-3.5 pl-3 pr-4 sm:pr-6"
                     >
-                      <span className="sr-only">Edit</span>
+                      <span className="sr-only">View</span>
                     </th>
                   </tr>
                 </thead>
@@ -80,16 +81,16 @@ const StudentList = (props) => {
                             {student.ensembleName}
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                            {student.email}
+                            <a href={`mailto:${student.email}`}>{student.email}</a>
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                             {student.voicePart}
                           </td>
                           <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                            <button className="text-indigo-600 hover:text-indigo-900">
-                              Edit
-                              <span className="sr-only">, {student.id}</span>
-                            </button>
+                            <Link to={student.id} className="text-indigo-600 hover:text-indigo-900">
+                              View
+                              <span className="sr-only">{student.id}</span>
+                            </Link>
                           </td>
                         </tr>
                       ))}

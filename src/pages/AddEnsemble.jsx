@@ -4,17 +4,18 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { db } from "../firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AddEnsemble = () => {
+  const navigate = useNavigate();
   const [newEnsembleName, setNewEnsembleName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const { user } = useAuthContext();
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
+  // function refreshPage() {
+  //   window.location.reload(false);
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ const AddEnsemble = () => {
       uid: user.uid,
     });
 
-    refreshPage();
+    navigate('/ensembles');
   };
 
   const handleChange = (e) => {

@@ -5,9 +5,16 @@ import { useCollection } from "../hooks/useCollection";
 import { db } from "../firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
+
 
 const StudentForm = () => {
+
+
+
+  const nav = useNavigate();
   const voicePartOptions = [
     "Soprano",
     "Soprano 1",
@@ -42,9 +49,9 @@ const StudentForm = () => {
   ]);
 
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
+  // function refreshPage() {
+  //   window.location.reload(false);
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,8 +72,10 @@ const StudentForm = () => {
       uid: user.uid,
     });
 
-    refreshPage();
+    nav('/students');
   };
+
+
   return (
     <>
       <form
@@ -162,7 +171,7 @@ const StudentForm = () => {
                           <option
                             id={ensemble.id}
                             key={ensemble.id} 
-                            value={ensemble.id}
+                            value={ensemble.name}
                           >
                             {ensemble.name}
                           </option>

@@ -19,7 +19,7 @@ const Ensembles = () => {
           <div className="sm:flex sm:items-center">
             <div className="mt-4 sm:flex-auto">
               <h1 className="text-xl font-semibold text-gray-900">Ensembles</h1>
-              <p className="mt-2 text-sm text-gray-700">
+              <p className="mt-2 mb-4 text-sm text-gray-700">
                 Select the ensemble below to view all students in that ensemble.
               </p>
             </div>

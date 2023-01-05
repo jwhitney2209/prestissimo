@@ -12,6 +12,7 @@ const Students = () => {
     user.uid,
   ]);
 
+
   return (
     <>
       <div className="max-w-[1240px] w-full mx-auto px-2 flex flex-col mb-6">
@@ -19,7 +20,7 @@ const Students = () => {
           <div className="sm:flex sm:items-center">
             <div className="mt-4 sm:flex-auto">
               <h1 className="text-xl font-semibold text-gray-900">Students</h1>
-              <p className="mt-2 text-sm text-gray-700">
+              <p className="mt-2 mb-4 text-sm text-gray-700">
                 A list of all the students in your program including their name,
                 grade level, email and voice part.
               </p>

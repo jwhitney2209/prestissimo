@@ -94,7 +94,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <Link to="/">
-                <span className="sr-only">Your Company</span>
+                <span className="sr-only">Prestissimo</span>
                 <img
                   className="h-8 w-auto sm:h-10"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
@@ -388,83 +388,111 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className="relative mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-                  <nav
-                    className="grid gap-y-10 bg-white px-4 py-8 sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12"
-                    aria-labelledby="solutions-heading"
-                  >
-                    <h2 id="solutions-heading" className="sr-only">
-                      Solutions menu
-                    </h2>
-                    <div>
-                      <h3 className="text-base font-medium text-gray-500">
-                        People
-                      </h3>
-                      <div role="list" className="mt-5 space-y-6">
-                        {people.map((item) => (
-                          <li key={item.name} className="flow-root">
-                            <a
-                              href={item.to}
-                              className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-50"
-                            >
-                              {" "}
-                              <span className="ml-4">{item.name}</span>
-                            </a>
-                          </li>
-                        ))}
-                        <div>
-                          <h3 className="text-base font-medium text-gray-500">
-                            Inventory
-                          </h3>
-                          <div role="list" className="mt-5 space-y-6">
-                            {inventory.map((item) => (
-                              <li key={item.name} className="flow-root">
-                                <a
-                                  href={item.href}
-                                  className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-50"
-                                >
-                                  <span className="ml-4">{item.name}</span>
-                                </a>
-                              </li>
-                            ))}
+                  {user ? (
+                    <nav
+                      className="grid gap-y-10 bg-white px-4 py-8 sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12"
+                      aria-labelledby="solutions-heading"
+                    >
+                      <h2 id="solutions-heading" className="sr-only">
+                        Solutions menu
+                      </h2>
+                      <div>
+                        <h3 className="text-base font-medium text-gray-500">
+                          People
+                        </h3>
+                        <div role="list" className="mt-5 space-y-6">
+                          {people.map((item) => (
+                            <li key={item.name} className="flow-root">
+                              <a
+                                href={item.to}
+                                className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-50"
+                              >
+                                {" "}
+                                <span className="ml-4">{item.name}</span>
+                              </a>
+                            </li>
+                          ))}
+                          <div>
+                            <h3 className="text-base font-medium text-gray-500">
+                              Inventory
+                            </h3>
+                            <div role="list" className="mt-5 space-y-6">
+                              {inventory.map((item) => (
+                                <li key={item.name} className="flow-root">
+                                  <a
+                                    href={item.href}
+                                    className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-50"
+                                  >
+                                    <span className="ml-4">{item.name}</span>
+                                  </a>
+                                </li>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                        <div>
-                          <h3 className="text-base font-medium text-gray-500">
-                            Calendar
-                          </h3>
-                          <div role="list" className="mt-5 space-y-6">
-                            {calendar.map((item) => (
-                              <li key={item.name} className="flow-root">
-                                <a
-                                  href={item.href}
-                                  className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-50"
-                                >
-                                  <span className="ml-4">{item.name}</span>
-                                </a>
-                              </li>
-                            ))}
+                          <div>
+                            <h3 className="text-base font-medium text-gray-500">
+                              Calendar
+                            </h3>
+                            <div role="list" className="mt-5 space-y-6">
+                              {calendar.map((item) => (
+                                <li key={item.name} className="flow-root">
+                                  <a
+                                    href={item.href}
+                                    className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-50"
+                                  >
+                                    <span className="ml-4">{item.name}</span>
+                                  </a>
+                                </li>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                        <div>
-                          <h3 className="text-base font-medium text-gray-500">
-                            Financials
-                          </h3>
-                          <div role="list" className="mt-5 space-y-6">
-                            {finances.map((item) => (
-                              <li key={item.name} className="flow-root">
-                                <a
-                                  href={item.href}
-                                  className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-50"
-                                >
-                                  <span className="ml-4">{item.name}</span>
-                                </a>
-                              </li>
-                            ))}
+                          <div>
+                            <h3 className="text-base font-medium text-gray-500">
+                              Financials
+                            </h3>
+                            <div role="list" className="mt-5 space-y-6">
+                              {finances.map((item) => (
+                                <li key={item.name} className="flow-root">
+                                  <a
+                                    href={item.href}
+                                    className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 transition duration-150 ease-in-out hover:bg-gray-50"
+                                  >
+                                    <span className="ml-4">{item.name}</span>
+                                  </a>
+                                </li>
+                              ))}
+                            </div>
                           </div>
+                          <button
+                            onClick={logout}
+                            type="button"
+                            className="w-full sm:mx-2 sm:mt-0 justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-md sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+                          >
+                            Logout
+                          </button>
                         </div>
                       </div>
-                    </div>
-                  </nav>
+                    </nav>
+                  ) : (
+                    <>
+                    <div className="mt-8">
+                      <a
+                        href="/login"
+                        type="button"
+                        className="w-full mt-4 text-center sm:mx-2 sm:mt-0 justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-md sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+                      >
+                        Sign In
+                      </a>
+                      <a
+                        href="/signup"
+                        type="button"
+                        className="w-full mt-4 text-center sm:mx-2 sm:mt-0 justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-md sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+                      >
+                        Sign Up
+                      </a>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

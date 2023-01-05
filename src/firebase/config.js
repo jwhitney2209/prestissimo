@@ -1,10 +1,19 @@
-import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
-
+/* eslint-disable no-unused-vars */
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  onSnapshot,
+  addDoc,
+  deleteDoc,
+  doc,
+  query,
+  where,
+} from "firebase/firestore";
 
 // auth
 // eslint-disable-next-line no-unused-vars
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -14,37 +23,18 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 // init firebase
-initializeApp(firebaseConfig)
+initializeApp(firebaseConfig);
 
 // init firestore
-const db = getFirestore()
+const db = getFirestore();
 
 // init firebase auth
-const auth = getAuth()
+const auth = getAuth();
 
-export { db, auth }
+export { db, auth };
 
-// const provider = new GoogleAuthProvider()
 
-// function refreshPage() {
-//   window.location.reload(false);
-// }
-
-// export const signInWithGoogle = () => {
-//   signInWithPopup(auth, provider).then((result) => {
-//     const name = result.user.displayName;
-//     const email = result.user.email;
-//     const profilePic = result.user.photoURL;
-
-//     localStorage.setItem("name", name)
-//     localStorage.setItem("email", email)
-//     localStorage.setItem("profilePic", profilePic)
-//     refreshPage();
-//   }).catch((error) => {
-//     console.log(error)
-//   });
-// }

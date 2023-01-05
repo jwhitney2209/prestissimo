@@ -15,9 +15,13 @@ import AddEnsemble from "./pages/AddEnsemble";
 import Ensembles from "./pages/Ensembles";
 import Uniforms from "./pages/Uniforms";
 import AddInventory from "./pages/AddInventory";
+import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
+
+
 
   return (
     <div>
@@ -66,6 +70,11 @@ function App() {
               path="/addinventory"
               element={user ? <AddInventory /> : <Navigate to="/login" />}
             />
+            <Route
+              path="/students/:id"
+              element={user ? <Profile /> : <Navigate to="/login" />}
+            />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
         </BrowserRouter>

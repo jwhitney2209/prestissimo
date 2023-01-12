@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { onSnapshot, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
@@ -84,14 +84,13 @@ const Profile = () => {
                 <p className="mt-2 mb-4 text-sm text-gray-700"></p>
               </div>
               <div className="flex flex-col sm:flex-row mt-4 sm:mt-0">
-                <Link to="/dashboard">
                   <button
                     type="button"
+                    onClick={() => { nav(-1)}}
                     className="w-full sm:mx-2 sm:mt-0 justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-md sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
                   >
-                    Back to Dashboard
+                    Go Back
                   </button>
-                </Link>
                 {data &&
                   data.map((student, index) => {
                     return (

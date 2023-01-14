@@ -1,7 +1,6 @@
 import React from "react";
 
 const DeleteConfirmation = ({ showModal, hideModal, confirmModal, id, firstName, lastName, message }) => {
-  console.log(id)
   return (
     <>
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />

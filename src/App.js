@@ -21,8 +21,6 @@ import NotFound from "./pages/NotFound";
 function App() {
   const { user, authIsReady } = useAuthContext();
 
-
-
   return (
     <div>
       {authIsReady && (
@@ -71,9 +69,13 @@ function App() {
               element={user ? <AddInventory /> : <Navigate to="/login" />}
             />
             <Route
-              path="/students/:id"
+              path="/student/profile/:id"
               element={user ? <Profile /> : <Navigate to="/login" />}
             />
+            {/* <Route
+              path="/ensembles/:id"
+              element={user ? <Profile /> : <Navigate to="/login" />}
+            /> */}
             <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />

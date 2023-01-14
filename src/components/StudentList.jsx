@@ -87,7 +87,7 @@ const StudentList = (props) => {
                             {student.voicePart}
                           </td>
                           <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                            <Link to={student.id} className="text-indigo-600 hover:text-indigo-900">
+                            <Link to={{ pathname: `/student/profile/${student.id}`}} className="text-indigo-600 hover:text-indigo-900">
                               View
                               <span className="sr-only">{student.id}</span>
                             </Link>

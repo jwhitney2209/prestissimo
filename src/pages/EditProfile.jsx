@@ -3,11 +3,13 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useCollection } from "../hooks/useCollection";
 
 import { db } from "../firebase/config";
-import { collection, addDoc } from "firebase/firestore";
+import { updateDoc, doc, onSnapshot } from "firebase/firestore";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-const StudentForm = () => {
+const EditProfile = () => {
+  const { id } = useParams();
   const nav = useNavigate();
   const voicePartOptions = [
     "Soprano",
@@ -42,18 +44,18 @@ const StudentForm = () => {
     user.uid,
   ]);
 
-  // function refreshPage() {
-  //   window.location.reload(false);
-  // }
+  useEffect(() =>
+    onSnapshot(doc(db, "students", id), (snapshot) => {
+      console.log(((doc) => doc.data()));
+    }), [id]
+  );
 
-  const handleSubmit = async (e) => {
+  const updateProfile = async (e) => {
     e.preventDefault();
 
-    if (newFirstName === "") {
-      return;
-    }
+    const docRef = doc(db, "students", id);
 
-    await addDoc(collection(db, "students"), {
+    await updateDoc(docRef, {
       firstName: newFirstName,
       lastName: newLastName,
       phone: newPhone,
@@ -72,7 +74,7 @@ const StudentForm = () => {
     <>
       <form
         className="space-y-8 divide-y divide-gray-200"
-        onSubmit={handleSubmit}
+        onSubmit={updateProfile}
       >
         <div className="space-y-8 sm:space-y-5">
           <div className="space-y-6 sm:space-y-5">
@@ -283,4 +285,4 @@ const StudentForm = () => {
   );
 };
 
-export default StudentForm;
+export default EditProfile;

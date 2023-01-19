@@ -17,6 +17,7 @@ import Uniforms from "./pages/Uniforms";
 import AddInventory from "./pages/AddInventory";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
@@ -71,6 +72,10 @@ function App() {
             <Route
               path="/student/profile/:id"
               element={user ? <Profile /> : <Navigate to="/login" />}
+            />
+            <Route
+              path="/student/profile/edit/:id"
+              element={user ? <EditProfile /> : <Navigate to="/login" />}
             />
             {/* <Route
               path="/ensembles/:id"

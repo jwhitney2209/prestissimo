@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { onSnapshot, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 import DeleteConfirmation from "../components/DeleteConfirmation";
 
-const Profile = () => {
+const Profile = (props) => {
   const nav = useNavigate();
   const { id } = useParams();
   const { user } = useAuthContext();
@@ -21,6 +21,25 @@ const Profile = () => {
   const [displayConfirmationModal, setDisplayConfirmationModal] =
     useState(false);
   const [deleteMessage, setDeleteMessage] = useState(null);
+
+  // TODO: Refactor code to take id from something other than params. useParams does not throw error if undefined in the useEffect.
+
+  useEffect(() => {
+    setIsPending(true);
+    const docRef = doc(db, "students", id);
+
+    onSnapshot(docRef, (doc) => {
+      let results = [];
+      if (doc.exists) {
+        setIsPending(false);
+        results.push({ ...doc.data() });
+        setData(results);
+      } else {
+        setIsPending(false);
+        setError("Could not find that student");
+      }
+    });
+  }, [id]);
 
   // handle the displaying of the modal based on id
   const showDeleteModal = (firstName, lastName, id) => {
@@ -46,23 +65,6 @@ const Profile = () => {
     nav("/students");
   };
 
-  useEffect(() => {
-    setIsPending(true);
-    const docRef = doc(db, "students", id);
-
-    onSnapshot(docRef, (doc) => {
-      let results = [];
-      if (doc.exists) {
-        setIsPending(false);
-        results.push({ ...doc.data() });
-        setData(results);
-      } else {
-        setIsPending(false);
-        setError("Could not find that student");
-      }
-    });
-  }, [id]);
-
   return (
     <>
       {user && (
@@ -74,7 +76,10 @@ const Profile = () => {
                 {isPending && <p className="loading">Loading...</p>}
                 {data &&
                   data.map((student, index) => (
-                    <div key={student.studentId} className="overflow-hidden bg-white shadow rounded-lg">
+                    <div
+                      key={student.studentId}
+                      className="overflow-hidden bg-white shadow rounded-lg"
+                    >
                       <div className="px-4 py-5 sm:px-6">
                         <h3 className="text-lg font-medium leading-6 text-gray-900">
                           {student.lastName}, {student.firstName}
@@ -142,9 +147,12 @@ const Profile = () => {
             >
               Go Back
             </button>
-            <button
-             type="button"
-             className="w-full text-center sm:mr-2 sm:mt-0 justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-md sm:text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:w-auto">Edit</button>
+            <Link to={{ pathname: `/student/profile/edit/${id}`}}
+              type="button"
+              className="w-full text-center sm:mr-2 sm:mt-0 justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-md sm:text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:w-auto"
+            >
+              Edit
+            </Link>
             {data &&
               data.map((student, index) => {
                 return (
